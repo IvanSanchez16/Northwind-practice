@@ -1,0 +1,36 @@
+server:
+  servlet:
+    context-path: /dev/northwind
+  port: 8080
+
+app:
+  environment: develop
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/northwind?currentSchema=public&ApplicationName=northwind-practice&socketTimeout=30
+    username: devuser
+    password: P8WT~w0C}6B]XoZ[
+    tomcat:
+      connection-properties: useUnicode=true;characterEncoding=utf-8;
+    hikari:
+      minimumIdle: 4
+      maximumPoolSize: 8
+      idleTimeout: 15000
+      poolName: SpringBootJPAHikariCP
+      maxLifetime: 1800000
+      connectionTimeout: 10000
+  sql:
+    init:
+      encoding: UTF-8
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        format_sql: true
+
